@@ -27,7 +27,7 @@ const TodoList = ({ tasks, setTask }) => {
                 {tasks.map(task => (
                     <tr>
                         <td>{task.text}</td>
-                        <td>{String(task.completed)}</td>
+                        <td>{task.completed ? 'Completed' : 'Incomplete'}</td>
                         <td>
                             <button onClick={() => deleteTask(task.id)}>Delete</button>
                             <button onClick={() => markCompleted(task.id)}>{task.completed ? 'In progress': 'Done'}</button>

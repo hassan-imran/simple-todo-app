@@ -12,7 +12,6 @@ const TodoForm = ({tasks, setTask}) => {
         }
         setTask([...tasks, newTask]);
         setText('');
-        console.log(tasks);
     }
 
     return (<div>
