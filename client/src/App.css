@@ -5,3 +5,15 @@ body {
 .App {
   box-shadow: #86aec0 0 0 25px;
 }
+
+.App thead th {
+  text-align: center;
+}
+
+.action-col, .checkbox-col {
+  text-align: center;
+}
+
+.completed-strike {
+  text-decoration: line-through;
+}

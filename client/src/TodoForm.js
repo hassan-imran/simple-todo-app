@@ -9,7 +9,7 @@ const TodoForm = ({ tasks, setTask }) => {
 
     const addError = (errorText) => {
         return (
-            <FormHelperText sx={{color:'#c41c1c', marginTop: '1em'}}>
+            <FormHelperText sx={{ color: '#c41c1c', marginTop: '1em' }}>
                 <InfoOutlined />
                 {errorText}
             </FormHelperText>
@@ -39,13 +39,13 @@ const TodoForm = ({ tasks, setTask }) => {
             value={text}
             onChange={(e) => {
                 setText(e.target.value);
-                if(error) {
+                if (error) {
                     setError('')
                 }
             }}
             sx={{ padding: '12px 20px' }}
         />
-        {error ? addError(error): ''}
+        {error ? addError(error) : ''}
     </div>)
 }
 export default TodoForm;
