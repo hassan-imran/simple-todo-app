@@ -1,4 +1,4 @@
-import { Table, Button, Typography } from '@mui/joy';
+import { Table, Button } from '@mui/joy';
 
 const TodoList = ({ tasks, setTask }) => {
 
@@ -17,7 +17,7 @@ const TodoList = ({ tasks, setTask }) => {
     }
 
     return (
-            <Table aria-label="basic table" variant='soft' sx={{ '& thead th:nth-child(1)': { width: '40%' }, maxWidth: '50%' }}>
+            <Table aria-label="basic table" variant='soft' sx={{ '& thead th:nth-child(1)': { width: '40%' }, maxWidth: '80%' }}>
                 <thead>
                     <tr>
                         <th>Task</th>
