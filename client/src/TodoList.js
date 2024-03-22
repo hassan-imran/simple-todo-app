@@ -1,3 +1,5 @@
+import { Table, Button, Typography } from '@mui/joy';
+
 const TodoList = ({ tasks, setTask }) => {
 
     const deleteTask = (id) => {
@@ -15,27 +17,27 @@ const TodoList = ({ tasks, setTask }) => {
     }
 
     return (
-        <table>
-            <thead>
-                <tr>
-                    <th>Task</th>
-                    <th>Status</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                {tasks.map(task => (
+            <Table aria-label="basic table" variant='soft' sx={{ '& thead th:nth-child(1)': { width: '40%' }, maxWidth: '50%' }}>
+                <thead>
                     <tr>
-                        <td>{task.text}</td>
-                        <td>{task.completed ? 'Completed' : 'Incomplete'}</td>
-                        <td>
-                            <button onClick={() => deleteTask(task.id)}>Delete</button>
-                            <button onClick={() => markCompleted(task.id)}>{task.completed ? 'In progress': 'Done'}</button>
-                        </td>
+                        <th>Task</th>
+                        <th>Status</th>
+                        <th>Actions</th>
                     </tr>
-                ))}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    {tasks.map(task => (
+                        <tr>
+                            <td>{task.text}</td>
+                            <td>{task.completed ? 'Completed' : 'Incomplete'}</td>
+                            <td>
+                                <Button variant='solid' color='success' onClick={() => markCompleted(task.id)}>{task.completed ? 'In progress' : 'Done'}</Button>
+                                <Button variant='solid' color='danger' onClick={() => deleteTask(task.id)}>Delete</Button>
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </Table>
     )
 }
 
