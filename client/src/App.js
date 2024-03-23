@@ -3,8 +3,7 @@ import TodoForm from './TodoForm';
 import React, { useState } from 'react';
 import { Card, Typography } from '@mui/joy';
 import TodoList from './TodoList';
-
-
+import { Counter } from './features/counter/Counter'
 
 function App() {
   const [tasks, setTask] = useState([
@@ -24,6 +23,7 @@ function App() {
       justifyContent: "center"
     }}>
       <Typography level='h1' style={{ marginTop: '0.25em' }}>Todo List</Typography>
+      <Counter />
       <TodoForm tasks={tasks} setTask={setTask} />
       <TodoList tasks={tasks} setTask={setTask} />
     </Card>
