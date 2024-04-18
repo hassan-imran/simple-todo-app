@@ -1,10 +1,10 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { decrement, increment } from './counterSlice'
+import { add, toggleComplete, deleteTodo } from './taskSlice'
 
-export function Counter() {
-  const count = useSelector((state) => state.counter.value)
-  const dispatch = useDispatch()
+export function Task() {
+  const tasks = useSelector((state) => state.tasks);
+  const dispatch = useDispatch();
 
   return (
     <div>
