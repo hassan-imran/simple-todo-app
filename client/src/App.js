@@ -4,8 +4,6 @@ import React, { useState } from 'react';
 import { Card, Typography } from '@mui/joy';
 import TodoList from './TodoList';
 
-
-
 function App() {
   const [tasks, setTask] = useState([
     {
