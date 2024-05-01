@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button, FormHelperText, Input } from '@mui/joy';
 import { InfoOutlined } from '@mui/icons-material';
 import { useDispatch } from 'react-redux';
-import { add } from './features/todo/taskSlice';
+import { add } from './store/todo/task';
 
 const TodoForm = () => {
 

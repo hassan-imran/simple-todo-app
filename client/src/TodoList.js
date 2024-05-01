@@ -1,6 +1,6 @@
 import { Table, Button, Checkbox } from '@mui/joy';
 import { useSelector, useDispatch } from 'react-redux';
-import { toggleComplete, deleteTask } from './features/todo/taskSlice';
+import { toggleComplete, deleteTask } from './store/todo/task';
 
 const TodoList = () => {
 
