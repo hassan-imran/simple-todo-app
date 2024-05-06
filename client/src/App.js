@@ -1,25 +1,20 @@
-import logo from './logo.svg';
+import { useNavigate } from 'react-router-dom';
 import './App.css';
+import { useSelector, useDispatch } from 'react-redux';
+// import UnAuth from './routes/401';
+import SignIn from './routes/SignIn'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+  const auth = useSelector((state) => state.auth.value);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  if (auth) {
+    return (<><h1>Dashboard</h1></>);
+  } else {
+    return (<><SignIn /></>)
+  }
 }
 
 export default App;
