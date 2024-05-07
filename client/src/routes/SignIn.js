@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -15,6 +15,7 @@ import axios from 'axios';
 const SignIn = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const auth = useSelector((state) => state.auth.value);
     // const errorMsg = useSelector((state) => state.error.value);
     const [error, setError] = useState(false);
 
@@ -63,8 +64,6 @@ const SignIn = () => {
         }
     };
 
-
-
     if (!tab) {
         loginTab = 'bg-primary';
         registerTab = 'bg-secondary';
@@ -72,6 +71,13 @@ const SignIn = () => {
         loginTab = 'bg-secondary';
         registerTab = 'bg-primary';
     }
+
+    useEffect(() => {
+        if (auth) {
+            navigate('/');
+        }
+    })
+
     return (
         <Container>
             {error ? <Alert className='mt-3' key={error.type} variant={error.type} onClose={() => setError(false)} dismissible>{error.msg}</Alert> : ''}

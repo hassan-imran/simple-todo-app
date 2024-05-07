@@ -24,7 +24,7 @@ const TopNav = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-2">
-            <Navbar.Text><Link to="/">Home</Link></Navbar.Text>
+            {auth ? <Navbar.Text><Link to="/">Home</Link></Navbar.Text> : <Navbar.Text><Link to="/login">Login</Link></Navbar.Text>}
           </Nav>
           <Nav className="me-2">
             <Navbar.Text><Link to="/about">About</Link></Navbar.Text>
@@ -32,7 +32,7 @@ const TopNav = () => {
         </Navbar.Collapse>
         <Navbar.Collapse className="justify-content-end">
 
-          {auth ? <Navbar.Text>Signed in as {auth} <Button className="btn-danger" onClick={(e) => logoutHandler(e)}>Logout</Button></Navbar.Text> : ``}
+          {auth ? <Navbar.Text>Signed in as <span className='fw-medium'>"{auth}"</span> <Button className="btn-danger" onClick={(e) => logoutHandler(e)}>Logout</Button></Navbar.Text> : ``}
 
         </Navbar.Collapse>
       </Container>
