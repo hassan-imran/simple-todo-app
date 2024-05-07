@@ -1,13 +1,22 @@
 import React from 'react';
 import Container from 'react-bootstrap/Container';
+import Button from 'react-bootstrap/esm/Button';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { updateAuth } from './store/authSlice';
 
 
 const TopNav = () => {
   const auth = useSelector((state) => state.auth.value);
+  const dispatch = useDispatch();
+  const logoutHandler = (e) => {
+    e.preventDefault();
+    dispatch(updateAuth(false));
+  }
+
+
   return (
     <Navbar expand="lg" className="bg-body-tertiary" data-bs-theme="dark">
       <Container>
@@ -23,7 +32,7 @@ const TopNav = () => {
         </Navbar.Collapse>
         <Navbar.Collapse className="justify-content-end">
 
-          {auth ? <Navbar.Text><a href="#login">Logout</a></Navbar.Text> : ``}
+          {auth ? <Button className="btn-danger" onClick={(e) => logoutHandler(e)}>Logout</Button> : ``}
 
         </Navbar.Collapse>
       </Container>

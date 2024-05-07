@@ -24,20 +24,24 @@ const saltRounds = 10;
 
 app.post("/signup", (req, res) => {
   const { name, userName, password } = { ...req.body }
-
-  bcrypt.hash(password, saltRounds)
-    .then((hash) => {
-      const password = hash;
-      console.log(hash)
-      UserModel.create({ name, userName, password })
-        .then((users) => res.json(users))
-        .catch(err => res.json(err))
-    })
-    .catch((err) => {
-      console.log(err.message)
+  UserModel.findOne({ userName: userName })
+    .then(user => {
+      if (!user) {
+        bcrypt.hash(password, saltRounds)
+          .then((hash) => {
+            const password = hash;
+            console.log(hash)
+            UserModel.create({ name, userName, password })
+              .then(() => res.json('User successfully created!'))
+              .catch(err => res.json(err))
+          })
+          .catch((err) => {
+            console.log(err.message)
+          });
+      } else {
+        res.json("Username already exists! Please choose another username.")
+      }
     });
-
-
 });
 
 app.post("/login", (req, res) => {
@@ -46,16 +50,21 @@ app.post("/login", (req, res) => {
     .then(user => {
       if (user) {
         bcrypt.compare(password, user.password, (err, response) => {
+          // console.log(response)
           if (err) {
-            res.json("The password was incorrect!");
-          } else if (response) {
+            res.json(err);
+          } 
+          if (response) {
             res.json("Success");
+          } else {
+            res.json("The password is incorrect");
           }
         })
       } else {
         res.json("Username does not exist!")
       }
     })
+    .catch((err) => { console.log(err) })
 })
 
 app.listen(port, () => {
