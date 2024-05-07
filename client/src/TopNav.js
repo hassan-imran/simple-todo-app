@@ -32,7 +32,7 @@ const TopNav = () => {
         </Navbar.Collapse>
         <Navbar.Collapse className="justify-content-end">
 
-          {auth ? <Button className="btn-danger" onClick={(e) => logoutHandler(e)}>Logout</Button> : ``}
+          {auth ? <Navbar.Text>Signed in as {auth} <Button className="btn-danger" onClick={(e) => logoutHandler(e)}>Logout</Button></Navbar.Text> : ``}
 
         </Navbar.Collapse>
       </Container>

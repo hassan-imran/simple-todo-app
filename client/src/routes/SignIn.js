@@ -33,10 +33,9 @@ const SignIn = () => {
             axios.post('http://localhost:8000/login', { userName: loginUsername, password: loginPass })
                 .then((result) => {
                     if (result.data === "Success") {
-                        // console.log(result);
+                        dispatch(updateAuth(loginUsername));
                         setLoginUserName('');
                         setLoginPass('');
-                        dispatch(updateAuth(true));
                         navigate('/');
                     } else {
                         console.log(result.data);
@@ -50,7 +49,6 @@ const SignIn = () => {
         } else {
             axios.post('http://localhost:8000/signup', { name: registerName, userName: registerUsername, password: registerPass })
                 .then((result) => {
-                    // console.log(result);
                     if (result.data === "User successfully created!") {
                         setRegisterName('');
                         setRegisterUsername('');
