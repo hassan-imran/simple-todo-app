@@ -32,7 +32,7 @@ const SignIn = () => {
     const handleSubmit = (e, eventType) => {
         e.preventDefault();
         if (eventType === 'login') {
-            axios.post('http://localhost:8000/login', { userName: loginUsername, password: loginPass })
+            axios.post('https://simple-todo-app-beta-five.vercel.app/login', { userName: loginUsername, password: loginPass })
                 .then((result) => {
                     if (result.data === "Success") {
                         dispatch(updateAuth(loginUsername));
@@ -50,7 +50,7 @@ const SignIn = () => {
                     setError({ type: 'danger', msg: err });
                 });
         } else {
-            axios.post('http://localhost:8000/signup', { name: registerName, userName: registerUsername, password: registerPass })
+            axios.post('https://simple-todo-app-beta-five.vercel.app/signup', { name: registerName, userName: registerUsername, password: registerPass })
                 .then((result) => {
                     if (result.data === "User successfully created!") {
                         setRegisterName('');

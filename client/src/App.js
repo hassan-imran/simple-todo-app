@@ -24,7 +24,7 @@ function App() {
     if (text) {
       try {
         const newTask = { id: Date.now().toString(), text, completed: false };
-        const response = await axios.post(`http://localhost:8000/users/${auth}/tasks`, newTask);
+        const response = await axios.post(`https://simple-todo-app-beta-five.vercel.app/users/${auth}/tasks`, newTask);
         dispatch(updateAllTasks(response.data.tasks))
         // console.log(taskList);
         setText('');
@@ -39,7 +39,7 @@ function App() {
   const handleDeleteTask = async (taskId) => {
     if (taskId) {
       try {
-        const response = await axios.delete(`http://localhost:8000/deletetask/${auth}/${taskId}`);
+        const response = await axios.delete(`https://simple-todo-app-beta-five.vercel.app/deletetask/${auth}/${taskId}`);
         dispatch(deleteTask(taskId));
       } catch (error) {
         console.error('Error deleting:', error)
@@ -50,7 +50,7 @@ function App() {
   const handleToggleTask = async (taskId) => {
     if (taskId) {
       try {
-        const response = await axios.patch(`http://localhost:8000/taskstatus/${auth}/${taskId}`);
+        const response = await axios.patch(`https://simple-todo-app-beta-five.vercel.app/taskstatus/${auth}/${taskId}`);
         dispatch(toggleComplete(taskId));
       } catch (error) {
         console.log(error);
@@ -61,7 +61,7 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/users/${auth}/tasks`);
+        const response = await axios.get(`https://simple-todo-app-beta-five.vercel.app/users/${auth}/tasks`);
         dispatch(updateAllTasks(response.data.tasks))
       } catch (error) {
         console.error('Error getting tasks:', error);
