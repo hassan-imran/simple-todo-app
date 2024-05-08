@@ -9,6 +9,7 @@ const About = () => {
       <Row>
         <Col className='mx-auto my-3 col-12'>
           <h1 className="display-3">About</h1>
+          <hr />
           <p>This is a simple Todo app.</p>
 
           <h1 className='display-6'>Frontend</h1>
