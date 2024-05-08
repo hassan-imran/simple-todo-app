@@ -4,16 +4,20 @@ import Button from 'react-bootstrap/esm/Button';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { updateAuth } from './store/authSlice';
+import { updateAllTasks } from './store/taskSlice';
 
 
 const TopNav = () => {
   const auth = useSelector((state) => state.auth.value);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const logoutHandler = (e) => {
     e.preventDefault();
+    dispatch(updateAllTasks({}));
     dispatch(updateAuth(false));
+    navigate('/login');
   }
 
 

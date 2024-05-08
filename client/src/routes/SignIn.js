@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateAuth } from '../store/authSlice';
 import axios from 'axios';
+import { updateAllTasks } from '../store/taskSlice';
 // import { updateError } from '../store/errorSlice';
 
 const SignIn = () => {
@@ -35,6 +36,7 @@ const SignIn = () => {
                 .then((result) => {
                     if (result.data === "Success") {
                         dispatch(updateAuth(loginUsername));
+                        dispatch(updateAllTasks({}));
                         setLoginUserName('');
                         setLoginPass('');
                         navigate('/');
