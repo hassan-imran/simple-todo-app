@@ -5,21 +5,19 @@ This is a simple Todo app.
 App deployed at: https://simple-todo-app-u5cf.vercel.app/login
 
 You can register with any pseudoname to try and then move add or remove tasks. One of these usernames through which you can sign-in is:
-* Username: newadmin
-* Password: newadmin
+* Username: test.account1
+* Password: 123
 
-### Frontend
+## Frontend
 The front-end is built using:
-
 * ReactJS
 * React Bootstrap (for styling)
 * React Router DOM (for front-end routing)
 * Redux Toolkit aka RTK (For state management)
 * Axios (for making server requests)
 
-### Backend
+## Backend
 The back-end is built using:
-
 * NodeJS
 * ExpressJS
 * Cors (to avoid the cross-origin request errors)
@@ -28,3 +26,16 @@ The back-end is built using:
 * Bcrypt (for encrypting passwords before storing them online)
 * MongoDB (for storing data)
 * Mongoose (for writing code for MongoDB)
+
+## Screens
+### Login / Register Page
+![image](https://github.com/hassan-imran/simple-todo-app/assets/43490649/37fd8e34-1335-49e1-880a-0444f50a3a97)
+![image](https://github.com/hassan-imran/simple-todo-app/assets/43490649/3814712e-8097-4ecf-8865-9bd9027c0e3c)
+
+### About Page
+![image](https://github.com/hassan-imran/simple-todo-app/assets/43490649/edd97219-897a-4f7d-9cc5-65e1ab9d42f9)
+
+### Dashboard
+![image](https://github.com/hassan-imran/simple-todo-app/assets/43490649/1b8f4cec-eee3-407e-a23d-efe72bd692d0)
+![image](https://github.com/hassan-imran/simple-todo-app/assets/43490649/a76eea72-fc0f-49f7-a524-8e2ede964324)
+
