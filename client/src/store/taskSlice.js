@@ -11,11 +11,9 @@ export const taskSlice = createSlice({
     name: 'tasks',
     initialState,
     reducers: {
-        add: (state, action) => {
-            state[Date.now()] = {
-                text: action.payload,
-                completed: false
-            }
+        updateAllTasks: (state, action) => {
+            // Instead of directly mutating the state object, you should return a new state object with the updated data
+            return action.payload;
         },
         toggleComplete: (state, action) => {
             const todo = state[action.payload];
@@ -30,6 +28,6 @@ export const taskSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { add, toggleComplete, deleteTask } = taskSlice.actions
+export const { updateAllTasks, toggleComplete, deleteTask } = taskSlice.actions
 
 export default taskSlice.reducer
