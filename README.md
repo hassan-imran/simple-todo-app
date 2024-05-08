@@ -1,12 +1,6 @@
 # simple-todo-app
 
 This is a simple Todo app.
- 
-App deployed at: https://simple-todo-app-u5cf.vercel.app/login
-
-You can register with any pseudoname to try and then move add or remove tasks. One of these usernames through which you can sign-in is:
-* Username: test.account1
-* Password: 123
 
 ## Note
 * Just make sure to replace the backend URLs with the localhost address that you'll be using.
