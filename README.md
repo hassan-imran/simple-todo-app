@@ -8,6 +8,11 @@ You can register with any pseudoname to try and then move add or remove tasks. O
 * Username: test.account1
 * Password: 123
 
+## Note
+* Just make sure to replace the backend URLs with the localhost address that you'll be using.
+* Make a dotenv file in the root of the API folder and define ```MONGO_URI``` & ```PORT``` in there.
+
+
 ## Frontend
 The front-end is built using:
 * ReactJS
